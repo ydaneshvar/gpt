@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vinext dev",
     "build": "vinext build",
+    "deploy": "wrangler deploy --config dist/server/wrangler.json",
+    "deploy:preview": "wrangler versions upload --config dist/server/wrangler.json",
     "start": "vinext start"
   },
   "dependencies": {
