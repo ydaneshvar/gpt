@@ -1,3 +1,5 @@
+import NetworkBackground from './NetworkBackground';
+
 const capabilities = [
   { icon: '01', title: 'Enterprise Infrastructure', text: 'Architecture, standards, lifecycle planning, and operational governance across mixed Linux and Windows environments.', tags: ['Linux', 'Windows Server', 'AD / Azure AD'] },
   { icon: '02', title: 'VMware & Virtualization', text: 'vSphere operations, capacity and performance analysis, platform hygiene, recovery planning, and modernization strategy.', tags: ['vSphere', 'ESXi', 'HA / DR'] },
@@ -23,10 +25,11 @@ const principles = [
 
 export default function Home() {
   return <main id="top">
+    <NetworkBackground />
     <div className="utility"><div className="shell utilityInner"><span>Varonex LLC · Rocklin, California</span><span>Enterprise infrastructure &amp; operations</span></div></div>
 
     <nav className="nav shell">
-      <a className="brand" href="#top" aria-label="Varonex home"><span className="brandMark">V</span><span>VARONEX<small>ENTERPRISE TECHNOLOGY</small></span></a>
+      <a className="brand" href="#top" aria-label="Varonex home"><span className="brandMark"/><span>Varonex<small>Enterprise IT. Security-first. Operations-ready.</small></span></a>
       <div className="navlinks"><a href="#expertise">Expertise</a><a href="#work">Selected Work</a><a href="#leadership">Leadership</a><a href="#contact">Contact</a></div>
       <a className="button buttonSmall" href="#contact">Discuss a priority <span>↗</span></a>
     </nav>
@@ -38,11 +41,18 @@ export default function Home() {
         <p className="heroLead">Varonex helps organizations stabilize, secure, and modernize the systems their operations depend on—from Linux and VMware to identity, automation, storage, and service delivery.</p>
         <div className="heroActions"><a className="button" href="#contact">Start with the environment <span>↗</span></a><a className="quietLink" href="#expertise">Explore capabilities <span>↓</span></a></div>
       </div>
-      <div className="heroVisual">
+      <div className="heroVisual" aria-label="Enterprise systems network visualization">
         <div className="visualGrid" aria-hidden="true"/>
-        <div className="profileFrame"><img src="https://varonex.com/wp-content/themes/varonex-pro/assets/profile-yashar-alt.png" alt="Yashar Daneshvar, founder of Varonex"/></div>
-        <div className="profileCard"><small>FOUNDER &amp; PRINCIPAL</small><strong>Yashar Daneshvar</strong><span>Enterprise Infrastructure &amp; Operations Leader</span></div>
-        <div className="signalCard"><i/><span>20+ years</span><small>enterprise delivery</small></div>
+        <div className="systemLabel"><i/><span>LIVE OPERATING MODEL</span><b>VX—01</b></div>
+        <svg className="systemMap" viewBox="0 0 600 600" role="img" aria-label="Connected infrastructure platforms">
+          <defs><radialGradient id="core"><stop offset="0" stopColor="#63d0ff" stopOpacity=".9"/><stop offset="1" stopColor="#0b1326" stopOpacity=".2"/></radialGradient><filter id="glow"><feGaussianBlur stdDeviation="7" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+          <g className="mapLines"><path d="M300 300 L154 168 L92 322 L213 455 L300 300 L438 146 L506 308 L418 468 Z"/><path d="M154 168 L438 146 M92 322 L506 308 M213 455 L418 468"/></g>
+          <g className="mapOrbit"><circle cx="300" cy="300" r="178"/><circle cx="300" cy="300" r="112"/><circle cx="300" cy="300" r="54"/></g>
+          <g className="mapNodes"><circle cx="154" cy="168" r="7"/><circle cx="92" cy="322" r="7"/><circle cx="213" cy="455" r="7"/><circle cx="438" cy="146" r="7"/><circle cx="506" cy="308" r="7"/><circle cx="418" cy="468" r="7"/></g>
+          <circle className="mapCore" cx="300" cy="300" r="38" fill="url(#core)" filter="url(#glow)"/>
+        </svg>
+        <div className="platformLabels"><span className="pl1">LINUX</span><span className="pl2">VMWARE</span><span className="pl3">IDENTITY</span><span className="pl4">SECURITY</span><span className="pl5">STORAGE</span><span className="pl6">AUTOMATION</span></div>
+        <div className="visualReadout"><div><small>PLATFORM STATE</small><strong>Operational</strong></div><div><small>DESIGN PRIORITY</small><strong>Resilience</strong></div></div>
       </div>
     </section>
 
@@ -83,6 +93,6 @@ export default function Home() {
       <div className="contactAside"><p>Describe the operational pressure, the platform, and what must be true when the work is complete. We will respond with a practical next step.</p><a className="contactLink" href="mailto:info@varonex.com"><span>Business inquiries</span><strong>info@varonex.com</strong><b>↗</b></a><a className="contactLink" href="https://www.linkedin.com/company/varonex" target="_blank" rel="noreferrer"><span>Connect with Varonex</span><strong>LinkedIn company page</strong><b>↗</b></a></div>
     </div></section>
 
-    <footer className="footer"><div className="shell footerGrid"><a className="brand brandLight" href="#top"><span className="brandMark">V</span><span>VARONEX<small>ENTERPRISE TECHNOLOGY</small></span></a><p>Enterprise infrastructure engineered for security, resilience, and operational clarity.</p><div><a href="https://www.linkedin.com/company/varonex" target="_blank" rel="noreferrer">LinkedIn ↗</a><small>© 2026 Varonex LLC</small></div></div><div className="shell disclaimer">Varonex LLC is an independent business. Professional affiliations and current employment references are provided solely as biographical context and do not imply government endorsement.</div></footer>
+    <footer className="footer"><div className="shell footerGrid"><a className="brand brandLight" href="#top"><span className="brandMark"/><span>Varonex<small>Enterprise IT. Security-first. Operations-ready.</small></span></a><p>Enterprise infrastructure engineered for security, resilience, and operational clarity.</p><div><a href="https://www.linkedin.com/company/varonex" target="_blank" rel="noreferrer">LinkedIn ↗</a><small>© 2026 Varonex LLC</small></div></div><div className="shell disclaimer">Varonex LLC is an independent business. Professional affiliations are provided solely as biographical context and do not imply government endorsement.</div></footer>
   </main>;
 }
