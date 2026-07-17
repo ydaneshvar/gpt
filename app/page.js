@@ -1,71 +1,88 @@
-const services = [
-  { n: '01', title: 'Infrastructure & Operations', text: 'Linux and Windows Server standards, lifecycle planning, troubleshooting, and resilient day-two operations.' },
-  { n: '02', title: 'VMware & Virtualization', text: 'vSphere health, capacity, performance, recovery readiness, and practical modernization roadmaps.' },
-  { n: '03', title: 'Security Readiness', text: 'Hardening, least privilege, logging, audit evidence, and risk reduction that fits the way your team works.' },
-  { n: '04', title: 'Automation & Leadership', text: 'Repeatable workflows, runbooks, technical standards, and delivery leadership that reduce operational friction.' }
+const capabilities = [
+  { icon: '01', title: 'Enterprise Infrastructure', text: 'Architecture, standards, lifecycle planning, and operational governance across mixed Linux and Windows environments.', tags: ['Linux', 'Windows Server', 'AD / Azure AD'] },
+  { icon: '02', title: 'VMware & Virtualization', text: 'vSphere operations, capacity and performance analysis, platform hygiene, recovery planning, and modernization strategy.', tags: ['vSphere', 'ESXi', 'HA / DR'] },
+  { icon: '03', title: 'Security Engineering', text: 'Hardening, privileged access, logging, audit evidence, segmentation, and practical control implementation.', tags: ['Hardening', 'IAM', 'Audit readiness'] },
+  { icon: '04', title: 'Automation & Reliability', text: 'Repeatable administration, configuration discipline, monitoring, runbooks, and workflows that reduce operational risk.', tags: ['Ansible', 'PowerShell', 'Observability'] },
+  { icon: '05', title: 'Storage & Continuity', text: 'SAN/NAS planning, backup and recovery alignment, dependency mapping, and resilient service design.', tags: ['SAN / NAS', 'Backup', 'Business continuity'] },
+  { icon: '06', title: 'Technical Leadership', text: 'Roadmaps, vendor and contract alignment, team enablement, workload planning, and accountable delivery.', tags: ['ITSM', 'Governance', 'Delivery'] }
 ];
 
-const outcomes = [
-  ['Fewer surprises', 'Find hidden dependencies and operational risks before they become incidents.'],
-  ['Cleaner recovery', 'Build rollback plans, runbooks, and ownership into every meaningful change.'],
-  ['Stronger evidence', 'Turn security controls and system activity into clear, usable audit evidence.'],
-  ['Supportable systems', 'Choose solutions your team can understand, maintain, and improve.']
+const programs = [
+  { label: 'Operational Baseline', title: 'Standardize the environment before scaling it.', text: 'Configuration standards, ownership, patch strategy, evidence, monitoring, and support boundaries—built around the environment your team actually operates.' },
+  { label: 'Virtualization Health', title: 'Turn platform signals into an actionable roadmap.', text: 'Capacity, performance, lifecycle exposure, resilience, and recovery readiness translated into prioritized technical and business decisions.' },
+  { label: 'Security Readiness', title: 'Make controls operational—not theoretical.', text: 'Practical hardening and audit-readiness work with traceable evidence, clear exceptions, and operating procedures teams can sustain.' },
+  { label: 'Modernization', title: 'Reduce risk while moving legacy services forward.', text: 'Dependency-led planning for platform, ERP, cloud, identity, and infrastructure transitions with validation and rollback built in.' }
+];
+
+const principles = [
+  ['01', 'Understand the system', 'Establish the technical baseline, service context, dependencies, constraints, and actual risk.'],
+  ['02', 'Design for operations', 'Choose the simplest safe architecture the team can support under real production conditions.'],
+  ['03', 'Execute with control', 'Plan validation, communication, evidence, and rollback before making consequential change.'],
+  ['04', 'Leave capability behind', 'Transfer knowledge through standards, runbooks, ownership, and measurable review loops.']
 ];
 
 export default function Home() {
-  return <main>
-    <nav className="nav wrap">
-      <a className="brand" href="#top" aria-label="Varonex home"><span>V</span>VARONEX</a>
-      <div className="navlinks"><a href="#services">Services</a><a href="#approach">Approach</a><a href="#about">About</a></div>
-      <a className="navcta" href="#contact">Start a conversation <b>↗</b></a>
+  return <main id="top">
+    <div className="utility"><div className="shell utilityInner"><span>Varonex LLC · Rocklin, California</span><span>Enterprise infrastructure &amp; operations</span></div></div>
+
+    <nav className="nav shell">
+      <a className="brand" href="#top" aria-label="Varonex home"><span className="brandMark">V</span><span>VARONEX<small>ENTERPRISE TECHNOLOGY</small></span></a>
+      <div className="navlinks"><a href="#expertise">Expertise</a><a href="#work">Selected Work</a><a href="#leadership">Leadership</a><a href="#contact">Contact</a></div>
+      <a className="button buttonSmall" href="#contact">Discuss a priority <span>↗</span></a>
     </nav>
 
-    <section className="hero wrap" id="top">
-      <div className="eyebrow"><i /> Enterprise infrastructure · Rocklin, California</div>
-      <h1>Enterprise IT,<br/><em>built to hold.</em></h1>
-      <div className="heroBottom">
-        <p>Security-first infrastructure, virtualization, and operational leadership for systems that cannot afford guesswork.</p>
-        <div className="actions"><a className="primary" href="#contact">Discuss your environment <b>↗</b></a><a className="textlink" href="#services">Explore capabilities ↓</a></div>
+    <section className="hero shell">
+      <div className="heroCopy">
+        <div className="status"><i/> Security-first. Operations-ready.</div>
+        <h1>Infrastructure<br/>that earns<br/><em>your trust.</em></h1>
+        <p className="heroLead">Varonex helps organizations stabilize, secure, and modernize the systems their operations depend on—from Linux and VMware to identity, automation, storage, and service delivery.</p>
+        <div className="heroActions"><a className="button" href="#contact">Start with the environment <span>↗</span></a><a className="quietLink" href="#expertise">Explore capabilities <span>↓</span></a></div>
       </div>
-      <div className="signal"><div className="rings"><span/><span/><span/><b>V</b></div><div className="signalText"><small>OPERATING PRINCIPLE</small><strong>Stable. Secure.<br/>Supportable.</strong></div></div>
-    </section>
-
-    <section className="proof"><div className="wrap proofgrid">
-      <div><strong>20+</strong><span>Years in enterprise IT</span></div>
-      <div><strong>3</strong><span>Core platforms<br/>Linux · Windows · VMware</span></div>
-      <div><strong>1</strong><span>Accountable operating model</span></div>
-      <p>Experience shaped by real production environments, controlled change, and the operational work that follows implementation.</p>
-    </div></section>
-
-    <section className="section wrap" id="services">
-      <header className="sectionhead"><div><span className="kicker">CAPABILITIES</span><h2>Clarity across the<br/>infrastructure lifecycle.</h2></div><p>Focused engagements that turn technical complexity into a realistic plan, controlled execution, and maintainable operations.</p></header>
-      <div className="servicegrid">{services.map(s => <article key={s.n}><span>{s.n}</span><h3>{s.title}</h3><p>{s.text}</p><b>↗</b></article>)}</div>
-    </section>
-
-    <section className="dark" id="approach"><div className="wrap">
-      <header className="darkhead"><span className="kicker">THE OPERATING MODEL</span><h2>Good infrastructure is not just installed.<br/><em>It is made operable.</em></h2></header>
-      <div className="steps">
-        <article><b>01</b><div><h3>Assess</h3><p>Map the environment, dependencies, constraints, and material risks. Separate urgent issues from expensive distractions.</p></div></article>
-        <article><b>02</b><div><h3>Execute</h3><p>Implement controlled changes with validation, stakeholder alignment, and rollback readiness.</p></div></article>
-        <article><b>03</b><div><h3>Sustain</h3><p>Leave behind standards, runbooks, ownership, and review loops—not new operational debt.</p></div></article>
+      <div className="heroVisual">
+        <div className="visualGrid" aria-hidden="true"/>
+        <div className="profileFrame"><img src="https://varonex.com/wp-content/themes/varonex-pro/assets/profile-yashar-alt.png" alt="Yashar Daneshvar, founder of Varonex"/></div>
+        <div className="profileCard"><small>FOUNDER &amp; PRINCIPAL</small><strong>Yashar Daneshvar</strong><span>Enterprise Infrastructure &amp; Operations Leader</span></div>
+        <div className="signalCard"><i/><span>20+ years</span><small>enterprise delivery</small></div>
       </div>
-    </div></section>
-
-    <section className="section wrap outcomes">
-      <header className="sectionhead"><div><span className="kicker">DESIGNED OUTCOMES</span><h2>Less operational noise.<br/>More control.</h2></div><p>The goal is not complexity. It is a safer environment, a clearer operating model, and a team that can support what is built.</p></header>
-      <div className="outcomegrid">{outcomes.map((o,i)=><article key={o[0]}><span>0{i+1}</span><h3>{o[0]}</h3><p>{o[1]}</p></article>)}</div>
     </section>
 
-    <section className="about" id="about"><div className="wrap aboutgrid">
-      <div className="monogram"><div>YD</div><span>ENTERPRISE IT<br/>SINCE 2000s</span></div>
-      <div><span className="kicker">LEADERSHIP</span><h2>Deep technical experience.<br/>Practical executive judgment.</h2><p className="lead">Varonex is led by Yashar Daneshvar, a senior IT leader with more than two decades of hands-on experience across Linux, Windows Server, VMware, security, automation, and enterprise operations.</p><p>Every recommendation is tested against real constraints: uptime, staffing, policy, risk, budget, and the people who will operate the system tomorrow.</p><small>Varonex is an independent professional brand and is not affiliated with or endorsed by any government agency.</small></div>
+    <section className="proof"><div className="shell proofGrid">
+      <div><strong>20+</strong><span>Years across enterprise technology and operations</span></div>
+      <div><strong>3</strong><span>Core estates: Linux, Windows, and VMware</span></div>
+      <div><strong>360°</strong><span>Architecture through day-two operations</span></div>
+      <div className="proofStatement">Built from real production responsibility—not slideware.</div>
     </div></section>
 
-    <section className="contact" id="contact"><div className="wrap contactgrid">
-      <div><span className="kicker">START HERE</span><h2>What is keeping your<br/>environment up at night?</h2></div>
-      <div><p>Share the environment, the pressure point, and what a good outcome looks like. We will determine whether there is a practical fit.</p><a href="mailto:hello@varonex.com">hello@varonex.com <b>↗</b></a><span>Rocklin, California · Serving organizations remotely and regionally</span></div>
+    <section className="section shell" id="expertise">
+      <div className="sectionIntro"><div><span className="overline">01 · EXPERTISE</span><h2>Deep enough for the platform.<br/><em>Broad enough for the mission.</em></h2></div><p>Infrastructure decisions do not live in isolation. Varonex connects architecture, security, operations, people, and lifecycle reality into one supportable operating model.</p></div>
+      <div className="capabilityGrid">{capabilities.map(c=><article key={c.icon} className="capability"><div className="capTop"><span>{c.icon}</span><b>↗</b></div><h3>{c.title}</h3><p>{c.text}</p><div className="tags">{c.tags.map(t=><span key={t}>{t}</span>)}</div></article>)}</div>
+    </section>
+
+    <section className="manifesto"><div className="shell manifestoGrid">
+      <div><span className="overline overlineLight">THE VARONEX STANDARD</span><h2>Complex systems.<br/>Clear decisions.<br/><em>Controlled change.</em></h2></div>
+      <div className="manifestoCopy"><p>Technology becomes valuable when it is secure enough to trust, stable enough to depend on, and clear enough for a team to operate.</p><blockquote>“Maintainability is not documentation added at the end. It is an architectural requirement from the beginning.”</blockquote><span>— Operating principle</span></div>
     </div></section>
 
-    <footer className="wrap"><a className="brand" href="#top"><span>V</span>VARONEX</a><p>Enterprise IT. Security-first. Operations-ready.</p><small>© 2026 Varonex. All rights reserved.</small></footer>
+    <section className="section shell" id="work">
+      <div className="sectionIntro compact"><div><span className="overline">02 · SELECTED PROGRAMS</span><h2>Work shaped around<br/><em>operational outcomes.</em></h2></div><p>Representative engagement patterns drawn from more than two decades of enterprise infrastructure, security, service management, and modernization work.</p></div>
+      <div className="programList">{programs.map((p,i)=><article key={p.label}><span className="programNo">0{i+1}</span><div><small>{p.label}</small><h3>{p.title}</h3></div><p>{p.text}</p><b>↗</b></article>)}</div>
+    </section>
+
+    <section className="leadership" id="leadership"><div className="shell leadershipGrid">
+      <div className="leaderVisual"><div className="leaderMonogram">YD</div><div className="leaderMeta"><span>Based in</span><strong>Rocklin, California</strong></div></div>
+      <div className="leaderCopy"><span className="overline">03 · LEADERSHIP</span><h2>From the command line<br/>to the operating model.</h2><p className="leaderLead">Yashar Daneshvar brings more than 20 years of technical and leadership experience across enterprise infrastructure, Linux systems, VMware virtualization, cybersecurity, automation, and IT service operations.</p><p>His perspective is grounded in both hands-on engineering and accountable leadership: team development, production reliability, vendor alignment, procurement, workload planning, stakeholder communication, and controlled delivery in high-responsibility environments.</p><div className="credentials"><div><strong>Master’s-level IT education</strong><span>Advanced study in information technology</span></div><div><strong>International foundation</strong><span>NCC Education, United Kingdom</span></div><div><strong>Enterprise leadership</strong><span>People, platforms, vendors, and operations</span></div></div><a className="quietLink darkLink" href="https://www.linkedin.com/in/yashar-daneshvar" target="_blank" rel="noreferrer">View professional profile <span>↗</span></a></div>
+    </div></section>
+
+    <section className="section shell process">
+      <div className="sectionIntro compact"><div><span className="overline">04 · DELIVERY MODEL</span><h2>Disciplined from discovery<br/><em>through handoff.</em></h2></div><p>Every engagement should reduce uncertainty, not transfer it. The work is structured to produce decisions, evidence, and operational capability.</p></div>
+      <div className="principleGrid">{principles.map(p=><article key={p[0]}><span>{p[0]}</span><h3>{p[1]}</h3><p>{p[2]}</p></article>)}</div>
+    </section>
+
+    <section className="contact" id="contact"><div className="shell contactGrid">
+      <div><span className="overline overlineLight">START A CONVERSATION</span><h2>Bring the environment.<br/><em>We’ll bring clarity.</em></h2></div>
+      <div className="contactAside"><p>Describe the operational pressure, the platform, and what must be true when the work is complete. We will respond with a practical next step.</p><a className="contactLink" href="mailto:info@varonex.com"><span>Business inquiries</span><strong>info@varonex.com</strong><b>↗</b></a><a className="contactLink" href="https://www.linkedin.com/company/varonex" target="_blank" rel="noreferrer"><span>Connect with Varonex</span><strong>LinkedIn company page</strong><b>↗</b></a></div>
+    </div></section>
+
+    <footer className="footer"><div className="shell footerGrid"><a className="brand brandLight" href="#top"><span className="brandMark">V</span><span>VARONEX<small>ENTERPRISE TECHNOLOGY</small></span></a><p>Enterprise infrastructure engineered for security, resilience, and operational clarity.</p><div><a href="https://www.linkedin.com/company/varonex" target="_blank" rel="noreferrer">LinkedIn ↗</a><small>© 2026 Varonex LLC</small></div></div><div className="shell disclaimer">Varonex LLC is an independent business. Professional affiliations and current employment references are provided solely as biographical context and do not imply government endorsement.</div></footer>
   </main>;
 }
